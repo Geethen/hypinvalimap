@@ -5,6 +5,7 @@ from shapely.geometry import box
 import os
 from tqdm.auto import tqdm
 from shapely import wkt
+import xvec
 
 def get_bounds_as_gdf(ds):
     """
