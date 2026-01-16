@@ -4,6 +4,7 @@ import geopandas as gpd
 from shapely.geometry import box
 import os
 from tqdm.auto import tqdm
+from shapely import wkt
 
 def get_bounds_as_gdf(ds):
     """
@@ -108,6 +109,8 @@ if __name__ == "__main__":
     dscrs = ds.rio.crs
 
     joined = pd.read_csv(r'/home/geethen/invasives/hypinvalimap/data/Wessels_CS2_exp3_gdf23.csv')
+
+    joined['geometry'] = joined['geometry'].apply(wkt.loads)
     joined = gpd.GeoDataFrame(joined, geometry='geometry', crs='EPSG:4326')
 
 
