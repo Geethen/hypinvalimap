@@ -120,6 +120,8 @@ if __name__ == "__main__":
         save_path = os.path.join(save_dir, "wessels_"+tile_name)
         
         if os.path.exists(save_path):
+            print(f"Skipping {tile_name}, already exists.")
+        else:
             print(f"Processing {tile_name}...")
             gdf = xr_to_gdf(extract_points(file, joined, crs= dscrs), dscrs)
             print(gdf.shape)
