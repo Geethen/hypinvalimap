@@ -146,5 +146,5 @@ if __name__ == "__main__":
 
     xdf = gpd.GeoDataFrame(pd.concat(gdfs, ignore_index=True), crs='EPSG:4326')
     
-    sjoined = gpd.sjoin_nearest(joined[['fid', 'class', 'group','change', 'notes', 'geometry']], xdf, how='inner', distance_col='dist')
+    sjoined = gpd.sjoin_nearest(joined, xdf, how='inner', distance_col='dist')
     sjoined.to_file(r"/home/geethen/invasives/hypinvalimap/data/2023_wessels_extracted.geojson")
