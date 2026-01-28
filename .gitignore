@@ -1,2 +1,3 @@
 *.nc
 *.geojson
+!data/2023_wessels_HSI_evalpts.geojson
